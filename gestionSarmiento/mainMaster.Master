@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mainMaster.master.cs" Inherits="gestionSarmiento.mainMaster" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <%--<link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />--%>
+    <title>|SmartGrid|</title>
+    <%--Estilos--%>
+    <%--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />--%>
+    <link href="content/css/metro.css" rel="stylesheet" />
+    <link href="content/css/metro-icons.css" rel="stylesheet" />
+    <link href="content/css/metro-responsive.css" rel="stylesheet" />
+    <link href="content/css/mainMaster.css" rel="stylesheet" />
+    <link href="content/css/metro-schemes.css" rel="stylesheet" />
+    <%--Scrips--%>
+    <script src="/content/js/jquery-2.1.4.min.js"></script>
+    <script src="/content/js/jquery.dataTables.min.js"></script>
+    <script src="/content/js/metro.js"></script>
+    <script src="/content/jsForm/mainMaster.js"></script>
+    <script src="/content/js/select2.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body class="bg-steel">
+    <div class="app-bar fixed-top fondoPrincipal" data-role="appbar">
+        <a class="app-bar-element" onclick="showCharms('#charmMenu')"><span class="icon mif-menu"></span></a>
+        <span class="app-bar-divider"></span>
+        <a href="../inicio.aspx" class="app-bar-element branding">SmartGrid</a>
+        <span class="app-bar-divider"></span>
+        <ul class="app-bar-menu">
+        </ul>
+        <div class="app-bar-element fondoPrincipal place-right">
+            <span class="dropdown-toggle fondoPrincipal"><%= HttpContext.Current.Session["Nombre"].ToString()%></span>
+            <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow fg-dark" data-role="dropdown" data-no-close="true">
+                <h2 class="text-light">Opciones</h2>
+                <ul class="unstyled-list fg-dark">
+                    <li><a href="" class="fg-white1 fg-hover-yellow">Perfil</a></li>
+                    <li><a href="" class="fg-white2 fg-hover-yellow">Seguridad</a></li>
+                    <li><a href="../Default.aspx" class="fg-white3 fg-hover-yellow">Salir</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <%--<div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    <ul class="sidebar">
+                        <li><a href="/pages/espacios.aspx">
+                            <span class="mif-apps icon"></span>
+                            <span class="title">all items</span>
+                            <span class="counter">0</span>
+                        </a></li>
+                        <li><a href="/pages/inicio.aspx">
+                            <span class="mif-vpn-publ icon"></span>
+                            <span class="title">websites</span>
+                            <span class="counter">0</span>
+                        </a></li>
+                        <li class=""><a href="#">
+                            <span class="mif-drive-eta icon"></span>
+                            <span class="title">Virtual machines</span>
+                            <span class="counter">2</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="mif-cloud icon"></span>
+                            <span class="title">Cloud services</span>
+                            <span class="counter">0</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="mif-database icon"></span>
+                            <span class="title">SQL Databases</span>
+                            <span class="counter">0</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="mif-cogs icon"></span>
+                            <span class="title">Automation</span>
+                            <span class="counter">0</span>
+                        </a></li>
+                        <li><a href="#">
+                            <span class="mif-apps icon"></span>
+                            <span class="title">all items</span>
+                            <span class="counter">0</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    --%>
+    <%--Loader--%>
+    <div id="loader" class="padding20 dialog" data-role="dialog" data-overlay="true" data-overlay-color="op-dark" data-close-button="false" data-windows-style="true">
+        <div data-role="preloader" data-type="metro" data-style="dark"></div>
+    </div>
+
+    <div id="charmMenu"  class="charm left-side no-padding" data-role="charm" data-position="left">
+        <h1 class="text-light"> Menú</h1>
+        <hr class="thin" />
+        <br />
+        <ul class="v-menu darcula">
+            <li class="menu-title"></li>
+            <li><a href="/inicio.aspx"><span class="mif-home icon"></span>Inicio</a></li>
+            <li class="divider"></li>
+            <li class="menu-title">Mantenimientos</li>
+            <li><a href="espacios.aspx"><span class="mif-stack2 icon"></span>Vallas</a></li>
+            <li><a href="#"><span class="mif-versions icon"></span>Mobiliario</a></li>
+            <li class="divider"></li>
+            <li class="menu-title">Procesos</li>
+            <li><a href="grilla.aspx"><span class="mif-stack2 icon"></span>Grilla comercial</a></li>
+            <li><a href="grillaOperaciones.aspx"><span class="mif-map2 icon"></span>Grilla operaciones</a></li>
+            <li><a href="colocacion.aspx"><span class="mif-map2 icon"></span>Asignar colocación</a></li>
+        </ul>
+    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,91 @@
+﻿html, body {
+            height: 100%;
+        }
+        body {
+        }
+        .page-content {
+            padding-top: 3.125rem;
+            min-height: 100%;
+            height: 100%;
+        }
+        .table .input-control.checkbox {
+            line-height: 1;
+            min-height: 0;
+            height: auto;
+        }
+
+        @media screen and (max-width: 800px){
+            #cell-sidebar {
+                flex-basis: 52px;
+            }
+            #cell-content {
+                flex-basis: calc(100% - 52px);
+            }
+        }
+
+.app-bar{
+    position:fixed;
+    /*background-color:#173e43;*/
+}
+
+.letra18 {
+    font-size:18px !important;
+}
+
+.fondoPrincipal{
+    background-color:#558C89 !important;
+}
+
+.fondoSecundario{
+    background-color:#74AFAD !important; 
+}
+
+.fondoNaranja{
+    background-color:#D9853B !important;
+}
+
+.letraNaranja{
+    color:#D9853B !important;
+}
+.fondoSuave{
+    background-color:#ECECEA !important;
+}
+
+.fondoIcono{
+    background-color:#c7752d !important;
+}
+
+.estrecho{
+    height:30px !important;
+}
+
+#dvCircuito {
+    height:110px;
+    width:49.8%;
+    background-color:aliceblue;
+}
+
+.select2-hidden-accessible{
+    border:0 !important;clip:rect(0 0 0 0) !important;
+    height:1px !important;
+    margin:-1px !important;
+    overflow:hidden !important;
+    padding:0 !important;
+    position:absolute !important;
+    width:1px !important}
+
+.oculto{
+    visibility: hidden;
+}
+
+
+footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+   z-index:1000000;
+}
+
